@@ -1,41 +1,70 @@
-import { Radio } from 'lucide-react';
-import { Search } from 'lucide-react';
-import { Crown, PlayCircle, LayoutGrid } from 'lucide-react';
+import { Crown, Search } from 'lucide-react';
 import Image from 'next/image';
 import profileImg from 'public/face.jpg';
+import sidebarData from '@/data/sidebarData';
+import SidebarItem from '@/components/sidebar/SidebarItem';
+import { useState } from 'react';
 
 export default function Home() {
+  const [activeDropdown, setActiveDropdown] = useState({
+    mainTitle: '',
+    childsOpen: [],
+  });
+
   return (
-    <div className='grid grid-cols-5'>
-      <aside className='h-screen border-r border-slate-200'>
+    <div className='flex h-screen'>
+      <aside className='h-full w-[265px] shrink-0 overflow-y-auto border-r border-slate-200'>
         {/* Title */}
-        <div className='px-8 py-6'>
+        <div className='px-6 py-6'>
           <p className='flex items-center text-2xl font-semibold tracking-tight'>
             <Crown className='mr-2' /> WMS
           </p>
         </div>
 
         {/* Menu */}
-        <div className='px-6'>
+        <div className='px-4'>
           <h2 className='mb-2 px-2 text-lg font-semibold tracking-tight'>
             Discover
           </h2>
 
           <div className='space-y-1'>
-            <button className='flex min-h-[2.25rem] w-full items-center rounded-md bg-slate-100 px-2 text-sm font-medium hover:bg-slate-100'>
+            {sidebarData.map((item, idx) => (
+              <SidebarItem
+                key={idx}
+                item={item}
+                activeDropdown={activeDropdown}
+                setActiveDropdown={setActiveDropdown}
+              />
+            ))}
+            {/* <button className='flex min-h-[2.25rem] w-full items-center rounded-md bg-slate-100 px-2 text-sm font-medium hover:bg-slate-100'>
               <PlayCircle className='mr-2 h-4 w-4' /> Listen Now
             </button>
-            <button className='flex min-h-[2.25rem] w-full items-center rounded-md px-2 text-sm font-medium hover:bg-slate-100'>
-              <LayoutGrid className='mr-2 h-4 w-4' /> Browse
-            </button>
+            <div className='rounded-md px-2 py-2 text-sm font-medium hover:bg-slate-500/10'>
+              <button className='flex w-full items-center justify-between'>
+                <span className='flex items-center'>
+                  <LayoutGrid className='mr-2 h-4 w-4' /> Browse
+                </span>
+                <ChevronRight className='h-4 w-4 rotate-90' />
+              </button>
+
+              <div className='sidebar-content space-y-1 pt-[.7rem]'>
+                <button className='flex min-h-[2.25rem] w-full items-center rounded-md px-2 text-sm font-medium hover:bg-slate-500/10'>
+                  <PlayCircle className='mr-2 h-4 w-4' /> Child One
+                </button>
+                <button className='flex min-h-[2.25rem] w-full items-center rounded-md px-2 text-sm font-medium hover:bg-slate-500/10'>
+                  <PlayCircle className='mr-2 h-4 w-4' /> Child Two
+                </button>
+              </div>
+            </div>
+
             <button className='flex min-h-[2.25rem] w-full items-center rounded-md px-2 text-sm font-medium hover:bg-slate-100'>
               <Radio className='mr-2 h-4 w-4' /> Radio
-            </button>
+            </button> */}
           </div>
         </div>
       </aside>
 
-      <div className='col-span-4'>
+      <div className='w-full'>
         {/* Topbar */}
         <div className='flex items-center justify-between border-b border-slate-200 px-8 py-4'>
           {/* Search Input */}
