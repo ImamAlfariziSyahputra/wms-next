@@ -83,18 +83,6 @@ export default function SidebarItem({
             open && 'h-auto'
           )}
         >
-          {/* overlay (to avoid click bug) */}
-          {/* <div
-            className='absolute z-[50] -ml-[.5rem] h-full bg-red-600/60'
-            style={{
-              width: `calc(100% + ${0.5 * depth + 1}rem)`,
-            }}
-            onClick={(e) => {
-              console.log('overlay clicked');
-              e.stopPropagation();
-            }}
-          /> */}
-
           {item.children.map((child, idx) => (
             <SidebarItem
               key={idx}
