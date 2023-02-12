@@ -71,7 +71,7 @@ export default function SidebarItem({
           </span>
           <ChevronRight
             className={cn(
-              'duration-[.3s] h-4 w-4 transition-all',
+              'h-4 w-4 transition-all duration-300',
               open && 'rotate-90'
             )}
           />

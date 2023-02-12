@@ -36,30 +36,6 @@ export default function Home() {
                 setActiveDropdown={setActiveDropdown}
               />
             ))}
-            {/* <button className='flex min-h-[2.25rem] w-full items-center rounded-md bg-slate-100 px-2 text-sm font-medium hover:bg-slate-100'>
-              <PlayCircle className='mr-2 h-4 w-4' /> Listen Now
-            </button>
-            <div className='rounded-md px-2 py-2 text-sm font-medium hover:bg-slate-500/10'>
-              <button className='flex w-full items-center justify-between'>
-                <span className='flex items-center'>
-                  <LayoutGrid className='mr-2 h-4 w-4' /> Browse
-                </span>
-                <ChevronRight className='h-4 w-4 rotate-90' />
-              </button>
-
-              <div className='sidebar-content space-y-1 pt-[.7rem]'>
-                <button className='flex min-h-[2.25rem] w-full items-center rounded-md px-2 text-sm font-medium hover:bg-slate-500/10'>
-                  <PlayCircle className='mr-2 h-4 w-4' /> Child One
-                </button>
-                <button className='flex min-h-[2.25rem] w-full items-center rounded-md px-2 text-sm font-medium hover:bg-slate-500/10'>
-                  <PlayCircle className='mr-2 h-4 w-4' /> Child Two
-                </button>
-              </div>
-            </div>
-
-            <button className='flex min-h-[2.25rem] w-full items-center rounded-md px-2 text-sm font-medium hover:bg-slate-100'>
-              <Radio className='mr-2 h-4 w-4' /> Radio
-            </button> */}
           </div>
         </div>
       </aside>
