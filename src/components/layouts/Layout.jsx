@@ -1,4 +1,5 @@
 import Sidebar from '@/components/layouts/sidebar/Sidebar';
+import { cn } from '@/lib/utils';
 import Topbar from './topbar/Topbar';
 
 export default function Layout({ children }) {
@@ -6,7 +7,7 @@ export default function Layout({ children }) {
     <div className='flex h-screen'>
       <Sidebar />
 
-      <div className='w-full'>
+      <div className={cn('w-full')}>
         <Topbar />
 
         <div className='p-4'>{children}</div>
