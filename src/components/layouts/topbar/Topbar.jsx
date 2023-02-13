@@ -10,7 +10,7 @@ export default function Topbar() {
   const { isSidebarOpen } = useSelector((state) => state.app);
 
   return (
-    <div className='flex items-center justify-between border-b border-slate-200 bg-white py-4 pl-6 pr-8'>
+    <div className='sticky top-0 flex items-center justify-between border-b border-slate-200 bg-white py-3 pl-6 pr-8'>
       <div className='flex items-center gap-x-4'>
         {/* Menu Button */}
         <AlignLeft

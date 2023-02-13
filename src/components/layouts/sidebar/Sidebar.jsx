@@ -27,7 +27,7 @@ export default function Sidebar() {
 
       <aside
         className={cn(
-          'fixed z-10 h-full w-[265px] shrink-0 overflow-y-auto border-r border-slate-200 bg-white transition-[margin-left] duration-300 md:static',
+          'fixed z-10 h-full w-[265px] shrink-0 overflow-y-auto border-r border-slate-200 bg-white transition-[margin-left] duration-300',
           isSidebarOpen ? 'ml-0' : '-ml-[265px]'
         )}
       >
