@@ -5,13 +5,12 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { isEqual } from 'lodash';
 
-export default function BaseSidebarItem({
-  item,
-  depth = 0,
-  activeDropdown,
-  setActiveDropdown = () => {},
-  containerCN,
-}) {
+export default function BaseSidebarItem({ item, depth = 0, containerCN }) {
+  const [activeDropdown, setActiveDropdown] = useState({
+    mainTitle: '',
+    childsOpen: [],
+  });
+
   return (
     <div className={cn('mt-2', containerCN)}>
       {/* Group Info Text */}
@@ -57,7 +56,6 @@ function SidebarItem({
     }
 
     setIsParentActive({ depth, isActive: isEqual(pathname, link) });
-    // }
   }, [router.pathname]);
 
   //! isActiveDropdown Logic

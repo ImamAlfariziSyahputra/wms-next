@@ -1,7 +1,6 @@
 import { Crown, X } from 'lucide-react';
 import BaseSidebarItem from './BaseSidebarItem';
 import sidebarData from '@/data/sidebarData';
-import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from '@/redux/slices/appSlice';
@@ -9,10 +8,6 @@ import { toggleSidebar } from '@/redux/slices/appSlice';
 export default function Sidebar() {
   const dispatch = useDispatch();
   const { isSidebarOpen } = useSelector((state) => state.app);
-  const [activeDropdown, setActiveDropdown] = useState({
-    mainTitle: '',
-    childsOpen: [],
-  });
 
   return (
     <>
@@ -49,12 +44,7 @@ export default function Sidebar() {
         {/* Menu */}
         <div className='space-y-2 px-4'>
           {sidebarData.map((item, idx) => (
-            <BaseSidebarItem
-              key={idx}
-              item={item}
-              activeDropdown={activeDropdown}
-              setActiveDropdown={setActiveDropdown}
-            />
+            <BaseSidebarItem key={idx} item={item} />
           ))}
         </div>
       </aside>
