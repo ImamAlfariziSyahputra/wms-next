@@ -13,6 +13,7 @@
   "dependencies": {
     "@next/font": "13.1.6",
     "@reduxjs/toolkit": "^1.9.2",
+    "@tanem/react-nprogress": "^5.0.27",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "eslint": "^8.34.0",

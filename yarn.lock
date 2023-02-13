@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.12.1", "@babel/runtime@^7.20.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.12.1", "@babel/runtime@^7.20.13", "@babel/runtime@^7.20.7", "@babel/runtime@^7.9.2":
   version "7.20.13"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.20.13.tgz#7055ab8a7cff2b8f6058bf6ae45ff84ad2aded4b"
   integrity sha512-gt3PKXs0DBoL9xCvOIIZ2NEqAGZqHjAnmVbfQtB620V0uReIQutpel14KcneZuer7UioY8ALKZ7iocavvzTNFA==
@@ -179,6 +179,14 @@
   integrity sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==
   dependencies:
     tslib "^2.4.0"
+
+"@tanem/react-nprogress@^5.0.27":
+  version "5.0.27"
+  resolved "https://registry.yarnpkg.com/@tanem/react-nprogress/-/react-nprogress-5.0.27.tgz#2e4a581f3ecf1aec1037bea769a97f645451b550"
+  integrity sha512-/aNLXukXY4K1Er+0WOvkcXVWpyMKnhRigfj0bNW3x9sePm5x/RiwQhRlUzv+KBKnN55mTp/Pa2P1Q9kmbFWDJg==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    hoist-non-react-statics "^3.3.2"
 
 "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.1"

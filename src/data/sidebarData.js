@@ -22,8 +22,8 @@ const sidebarData = [
         Icon: Database,
         children: [
           {
-            title: 'Category',
-            link: '/master-data/category',
+            title: 'Categories',
+            link: '/master-data/categories',
             Icon: PlayCircle,
           },
           {
