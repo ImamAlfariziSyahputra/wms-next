@@ -1,8 +1,8 @@
 import { Crown, X } from 'lucide-react';
+import { useDispatch, useSelector } from 'react-redux';
 import BaseSidebarItem from './BaseSidebarItem';
 import sidebarData from '@/data/sidebarData';
 import { cn } from '@/lib/utils';
-import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from '@/redux/slices/appSlice';
 
 export default function Sidebar() {

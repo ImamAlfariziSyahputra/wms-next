@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ChevronRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { isEqual } from 'lodash';
+import { cn } from '@/lib/utils';
 
 export default function BaseSidebarItem({ item, depth = 0, containerCN }) {
   const [activeDropdown, setActiveDropdown] = useState({

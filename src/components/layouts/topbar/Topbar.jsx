@@ -1,8 +1,8 @@
 import { AlignLeft, AlignRight, Search } from 'lucide-react';
 import Image from 'next/image';
 import profileImg from 'public/face.jpg';
-import { toggleSidebar } from '@/redux/slices/appSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { toggleSidebar } from '@/redux/slices/appSlice';
 import { cn } from '@/lib/utils';
 
 export default function Topbar() {

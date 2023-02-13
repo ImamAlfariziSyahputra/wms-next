@@ -1,5 +1,5 @@
-import Sidebar from '@/components/layouts/sidebar/Sidebar';
 import { useSelector } from 'react-redux';
+import Sidebar from '@/components/layouts/sidebar/Sidebar';
 import { cn } from '@/lib/utils';
 import Topbar from './topbar/Topbar';
 

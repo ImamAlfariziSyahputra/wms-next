@@ -4,7 +4,7 @@ const appSlice = createSlice({
   name: 'app',
   initialState: {
     isAnimating: false,
-    isSidebarOpen: false,
+    isSidebarOpen: true,
   },
   reducers: {
     setIsAnimating: (state, action) => {
