@@ -1,16 +1,66 @@
 import { useEffect, useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { isEqual } from 'lodash';
 
-export default function SidebarItem({
+export default function BaseSidebarItem({
   item,
   depth = 0,
   activeDropdown,
   setActiveDropdown = () => {},
   containerCN,
 }) {
-  const [open, setOpen] = useState(false);
+  return (
+    <div className={cn('mt-2', containerCN)}>
+      {/* Group Info Text */}
+      <h2 className='px-2 text-lg font-semibold tracking-tight'>
+        {item.title}
+      </h2>
 
+      {item?.children?.map((child, idx) => (
+        <SidebarItem
+          key={idx}
+          item={child}
+          depth={depth}
+          activeDropdown={activeDropdown}
+          setActiveDropdown={setActiveDropdown}
+        />
+      ))}
+    </div>
+  );
+}
+
+function SidebarItem({
+  item,
+  depth = 0,
+  activeDropdown,
+  setActiveDropdown = () => {},
+  containerCN,
+}) {
+  const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const [isParentActive, setIsParentActive] = useState({
+    depth: null,
+    isActive: false,
+  });
+
+  //! isParentActive Logic
+  useEffect(() => {
+    const pathname = router.pathname.split('/').filter((p) => p !== '');
+    pathname.length = depth + 1;
+
+    let link = [];
+    if (item?.link) {
+      link = item.link.split('/').filter((p) => p !== '');
+    }
+
+    setIsParentActive({ depth, isActive: isEqual(pathname, link) });
+    // }
+  }, [router.pathname]);
+
+  //! isActiveDropdown Logic
   useEffect(() => {
     setOpen(
       //! if 1st dropdown, check mainTitle and childsOpen.
@@ -22,16 +72,23 @@ export default function SidebarItem({
     );
   }, [activeDropdown]);
 
+  //! JSX
   if (item.children) {
     return (
       <div
         className={cn(
-          'rounded-md text-sm font-medium hover:bg-slate-400/10',
+          'rounded-md font-medium hover:bg-purple-400/10',
           containerCN
         )}
       >
         <button
-          className='flex w-full items-center justify-between px-2 py-2'
+          type='button'
+          className={cn(
+            'flex w-full items-center justify-between rounded-md px-2 py-2 text-sm',
+            isParentActive.isActive &&
+              isParentActive.depth <= depth &&
+              'bg-purple-200'
+          )}
           onClick={(e) => {
             //! to avoid trigger parent's onClick
             e.stopPropagation();
@@ -52,17 +109,16 @@ export default function SidebarItem({
                 //! (if the parent got closed, close all below)
                 current.childsOpen.length = current.childsOpen.indexOf(depth);
                 return { ...current };
-              } else {
-                //* on open
-                //! if 1st dropdown, update the "mainTitle" too.
-                if (depth === 0) {
-                  current.mainTitle = item.title;
-                }
-
-                //! if the child clicked, just update the childsOpen property
-                current.childsOpen = [...current.childsOpen, depth].sort();
-                return { ...current };
               }
+              //* on open
+              //! if 1st dropdown, update the "mainTitle" too.
+              if (depth === 0) {
+                current.mainTitle = item.title;
+              }
+
+              //! if the child clicked, just update the childsOpen property
+              current.childsOpen = [...current.childsOpen, depth].sort();
+              return { ...current };
             });
           }}
         >
@@ -95,16 +151,21 @@ export default function SidebarItem({
         </div>
       </div>
     );
-  } else {
-    return (
-      <button
-        className='flex min-h-[2.25rem] w-full items-center rounded-md px-2 text-sm font-medium hover:bg-slate-400/10'
-        style={{
-          zIndex: depth + 1,
-        }}
-      >
-        <item.Icon className='mr-2 h-4 w-4 shrink-0' /> {item.title}
-      </button>
-    );
   }
+
+  return (
+    <Link
+      href={item.link || '#'}
+      className={cn(
+        'flex min-h-[2.25rem] w-full items-center rounded-md px-2 text-sm font-medium transition hover:bg-slate-400/10',
+        item.link === router.pathname &&
+          'bg-purple-600 text-white hover:bg-purple-600'
+      )}
+      style={{
+        zIndex: depth + 1,
+      }}
+    >
+      <item.Icon className='mr-2 h-4 w-4 shrink-0' /> {item.title}
+    </Link>
+  );
 }

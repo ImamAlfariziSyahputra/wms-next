@@ -1,34 +1,34 @@
-import { Radio } from 'lucide-react';
-import { LayoutGrid } from 'lucide-react';
 import { PlayCircle } from 'lucide-react';
 
 const sidebarData = [
   {
-    title: 'Listen Now',
-    Icon: PlayCircle,
-  },
-  {
-    title: 'Browse',
-    Icon: LayoutGrid,
+    title: 'Dashboard',
+    type: 'info',
     children: [
       {
-        title: 'Child One',
+        title: 'Dashboard',
+        link: '/',
         Icon: PlayCircle,
       },
+    ],
+  },
+  {
+    title: 'Data',
+    type: 'info',
+    children: [
       {
-        title: 'Contact',
+        title: 'Master Data',
+        link: '/master-data',
         Icon: PlayCircle,
         children: [
           {
-            title: 'Facebook',
+            title: 'Category',
+            link: '/master-data/category',
             Icon: PlayCircle,
           },
           {
-            title: 'Twitter',
-            Icon: PlayCircle,
-          },
-          {
-            title: 'Instagram',
+            title: 'Customers',
+            link: '/master-data/customers',
             Icon: PlayCircle,
           },
         ],
@@ -36,58 +36,13 @@ const sidebarData = [
     ],
   },
   {
-    title: 'Radio',
-    Icon: Radio,
+    title: 'Misc',
+    type: 'info',
     children: [
       {
-        title: 'Child One',
+        title: 'Settings',
+        link: '/settings',
         Icon: PlayCircle,
-      },
-      {
-        title: 'Contact',
-        Icon: PlayCircle,
-        children: [
-          {
-            title: 'Facebook',
-            Icon: PlayCircle,
-          },
-          {
-            title: 'Twitter',
-            Icon: PlayCircle,
-          },
-          {
-            title: 'Instagram',
-            Icon: PlayCircle,
-            children: [
-              {
-                title: 'Facebook',
-                Icon: PlayCircle,
-              },
-              {
-                title: 'Twitter',
-                Icon: PlayCircle,
-              },
-              {
-                title: 'Instagram',
-                Icon: PlayCircle,
-                children: [
-                  {
-                    title: 'Facebook',
-                    Icon: PlayCircle,
-                  },
-                  {
-                    title: 'Twitter',
-                    Icon: PlayCircle,
-                  },
-                  {
-                    title: 'Instagram',
-                    Icon: PlayCircle,
-                  },
-                ],
-              },
-            ],
-          },
-        ],
       },
     ],
   },
