@@ -1,4 +1,4 @@
-import { PlayCircle } from 'lucide-react';
+import { Database, LayoutGrid, PlayCircle, Settings } from 'lucide-react';
 
 const sidebarData = [
   {
@@ -8,7 +8,7 @@ const sidebarData = [
       {
         title: 'Dashboard',
         link: '/',
-        Icon: PlayCircle,
+        Icon: LayoutGrid,
       },
     ],
   },
@@ -19,7 +19,7 @@ const sidebarData = [
       {
         title: 'Master Data',
         link: '/master-data',
-        Icon: PlayCircle,
+        Icon: Database,
         children: [
           {
             title: 'Category',
@@ -42,7 +42,7 @@ const sidebarData = [
       {
         title: 'Settings',
         link: '/settings',
-        Icon: PlayCircle,
+        Icon: Settings,
       },
     ],
   },
